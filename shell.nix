@@ -2,7 +2,7 @@
 {
   nix-ros-overlay ? builtins.fetchTarball "https://github.com/lopsided98/nix-ros-overlay/archive/master.tar.gz",
   pkgs ? import nix-ros-overlay { },
-  rosDistro ? "humble",
+  rosDistro ? "rolling",
   extraPkgs ? { },
   extraPaths ? [ ],
   withPackages ? _: [ ],
@@ -16,6 +16,7 @@ pkgs.mkShell {
       paths =
         [
           pkgs.colcon
+          pkgs.python312Packages.transforms3d
           pkgs.rosPackages.${rosDistro}.ros-core
 
           # Work around https://github.com/lopsided98/nix-ros-overlay/pull/624
@@ -34,9 +35,9 @@ pkgs.mkShell {
             ament-lint-auto
             ament-lint-common
             builtin-interfaces
-            # carla-msgs
             cv-bridge
             derived-object-msgs
+            diagnostic-msgs
             geometry-msgs
             nav-msgs
             pcl-conversions
