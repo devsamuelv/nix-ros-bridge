@@ -18,5 +18,5 @@ final: prev:
   pcl-recorder = final.callPackage ././pcl_recorder/package.nix {};
   ros-compatibility = final.callPackage ././ros_compatibility/package.nix {};
   rqt-carla-control = final.callPackage ././rqt_carla_control/package.nix {};
-  rviz-carla-plugin = final.callPackage ././rviz_carla_plugin/package.nix {};
+  # rviz-carla-plugin = final.callPackage ././rviz_carla_plugin/package.nix {};
 }

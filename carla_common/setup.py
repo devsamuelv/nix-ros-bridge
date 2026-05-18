@@ -3,7 +3,15 @@ Setup for carla_common
 """
 
 import os
-ROS_VERSION = int(os.environ['ROS_VERSION'])
+import warnings
+
+ROS_VERSION = 2
+
+try:
+    ROS_VERSION = int(os.environ["ROS_VERSION"])
+except KeyError:
+    warnings.warn("ROS version not specified defaulting to ROS2")
+    pass
 
 if ROS_VERSION == 1:
     from distutils.core import setup

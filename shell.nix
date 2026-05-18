@@ -10,6 +10,7 @@
 }:
 pkgs.mkShell {
   name = "ros2nix ${rosDistro} shell";
+
   packages = [
     (pkgs.rosPackages.${rosDistro}.buildEnv {
       wrapPrograms = false;
@@ -41,8 +42,9 @@ pkgs.mkShell {
             nav-msgs
             pcl-conversions
             python-qt-binding
-            # python-transforms3d-pip
+            geometry2
             # qt5.qtbase
+            python312Packages.transforms3d
             rclcpp
             rclpy
             ros-environment
